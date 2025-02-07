@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const IBMPlex = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex",
 });
 
 export const metadata: Metadata = {
@@ -24,15 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <section className="h-screen py-1 px-6 bg-hero-bg">
-          <Header />
+    <ClerkProvider>
+      <html lang="en" className={`${roboto.variable} ${IBMPlex.variable}`}>
+        <body className="antialiased">
+          {/* <section className="h-screen px-6 bg-hero-bg"> */}
           {children}
-        </section>
-      </body>
-    </html>
+          {/* </section> */}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

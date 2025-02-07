@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-.search-input-shadow {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+:root {
+  --font-roboto: "Roboto", sans-serif;
+  --font-ibm-plex: "IBM Plex Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-roboto);
+}
+
+h1 {
+  font-family: var(--font-ibm-plex);
+}
+
+.card-shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@layer utilities {
+  .padding {
+    @apply py-5 px-2;
+  }
+
+  .sub-heading {
+    @apply text-xl font-semibold text-gray-600;
+  }
+
+  .hero {
+    @apply flex flex-col items-center justify-between gap-[5vh]  overflow-x-hidden;
+  }
+
+  .brands-container {
+    @apply flex gap-[4vw] mx-auto p-3 rounded-xl  bg-gray-500 bg-opacity-25 w-fit  md:w-full overflow-hidden;
+  }
 }

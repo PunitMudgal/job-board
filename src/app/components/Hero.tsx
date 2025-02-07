@@ -1,47 +1,37 @@
 import React from "react";
 import job_hunt from "../../../public/icons/startup-launch.svg";
 import Image from "next/image";
+import Brands from "./Brands";
+import Search from "./Search";
 
 const Hero = () => {
   return (
-    <div className=" flex flex-col items-center justify-center ">
-      <div className="flex justify-around items-center w-full">
+    <div className="hero padding ">
+      <div className="flex justify-around items-center w-full ">
         <div className="max-w-3xl space-y-3">
-          <h1 className="text-7xl font-bold md:text-5xl">
+          <h1 className="text-7xl font-bold md:text-5xl sm:text-3xl">
             Find your
             <br />
-            <span className="text-cyan-600">Dream Job,</span>
+            <span className="text-cyan-500">Dream Job,</span>
             <br />
             Today!
           </h1>
-          <p className="text-md font-semibold">
+          <p className="text-md font-semibold sm:text-xs">
             Find Your Dream Job Explore Top Opportunities & Get Hired Faster🚀
           </p>
         </div>
-        <Image src={job_hunt} height={350} alt="img" className="self-end" />
-      </div>
-      <div className="relative mx-auto mt-5 w-fit">
-        <input
-          placeholder="Search by company, profile..."
-          className="input mx-auto search-input-shadow focus:border-2 border-gray-300 px-5 py-3 rounded-xl w-[420px] transition-all  focus:w-[600px] outline-none md:focus:w-[420px]"
-          name="search"
-          type="search"
+        <Image
+          src={job_hunt}
+          height={0}
+          width={0}
+          alt="img"
+          // className="h-80 md:h-56 w-auto sm:h-40 "
+          className="h-80 w-auto md:w-56 md:h-auto sm:w-40"
         />
-        <svg
-          className="size-6 absolute top-3 right-3 text-gray-500"
-          stroke="currentColor"
-          stroke-width="1.5"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-          ></path>
-        </svg>
       </div>
+      <Search />
+
+      <Brands />
     </div>
   );
 };
